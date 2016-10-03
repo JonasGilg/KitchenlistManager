@@ -49,7 +49,7 @@ class UIController(val window: Stage) {
 		window.scene = scene
 		window.minWidth = root.prefWidth + 20
 		window.minHeight = root.prefHeight + 40
-
-		window.show()
 	}
+
+	fun show() = window.show()
 }

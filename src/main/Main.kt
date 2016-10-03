@@ -6,14 +6,15 @@ import main.view.UIController
 
 class Main : Application() {
 
-    override fun start(primaryStage: Stage) {
-        UIController(primaryStage)
-    }
+	override fun start(primaryStage: Stage) {
+		val uiController = UIController(primaryStage)
+		uiController.show()
+	}
 
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            launch(Main::class.java, *args)
-        }
-    }
+	companion object {
+		@JvmStatic
+		fun main(args: Array<String>) {
+			launch(Main::class.java, *args)
+		}
+	}
 }
