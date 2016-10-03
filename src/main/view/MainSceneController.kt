@@ -4,7 +4,6 @@ import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.control.cell.PropertyValueFactory
-import javafx.scene.effect.DropShadow
 import javafx.scene.layout.BorderPane
 import javafx.scene.text.Font
 import javafx.util.Duration
@@ -17,85 +16,85 @@ class MainSceneController(val uiController: UIController) {
 	private val popUp = PopOver(textArea)
 
 	@FXML
-	private var resources: ResourceBundle? = null
+	private lateinit var resources: ResourceBundle
 
 	@FXML
-	private var root: BorderPane? = null
+	private lateinit var root: BorderPane
 
 	@FXML
-	private var menuBarEditUndo: MenuItem? = null
+	private lateinit var menuBarEditUndo: MenuItem
 
 	@FXML
-	private var menuBarEditRedo: MenuItem? = null
+	private lateinit var menuBarEditRedo: MenuItem
 
 	@FXML
-	private var menuBarEditNewPerson: MenuItem? = null
+	private lateinit var menuBarEditNewPerson: MenuItem
 
 	@FXML
-	private var menuBarEditNewProduct: MenuItem? = null
+	private lateinit var menuBarEditNewProduct: MenuItem
 
 	@FXML
-	private var toolBarNotes: Button? = null
+	private lateinit var toolBarNotes: Button
 
 	@FXML
-	private var toolBarLoginLogout: Button? = null
+	private lateinit var toolBarLoginLogout: Button
 
 	@FXML
-	private var toolBarUndo: Button? = null
+	private lateinit var toolBarUndo: Button
 
 	@FXML
-	private var toolBarRedo: Button? = null
+	private lateinit var toolBarRedo: Button
 
 	@FXML
-	private var toolBarLog: Button? = null
+	private lateinit var toolBarLog: Button
 
 	@FXML
-	private var toolBarNewPerson: Button? = null
+	private lateinit var toolBarNewPerson: Button
 
 	@FXML
-	private var toolBarNewProduct: Button? = null
+	private lateinit var toolBarNewProduct: Button
 
 	@FXML
-	private var toolBarStock: Button? = null
+	private lateinit var toolBarStock: Button
 
 	@FXML
-	private var toolBarFinances: Button? = null
+	private lateinit var toolBarFinances: Button
 
 	@FXML
-	private var personTable: TableView<Person>? = null
+	private lateinit var personTable: TableView<Person>
 
 	@FXML
-	private var personTableLastNameColumn: TableColumn<Person, String>? = null
+	private lateinit var personTableLastNameColumn: TableColumn<Person, String>
 
 	@FXML
-	private var personTableFirstNameColumn: TableColumn<Person, String>? = null
+	private lateinit var personTableFirstNameColumn: TableColumn<Person, String>
 
 	@FXML
-	private var personTableBalanceColumn: TableColumn<Person, Double>? = null
+	private lateinit var personTableBalanceColumn: TableColumn<Person, Double>
 
 	@FXML
-	private var buttonBarDetails: Button? = null
+	private lateinit var buttonBarDetails: Button
 
 	@FXML
-	private var buttonBarInfo: Label? = null
+	private lateinit var buttonBarInfo: Label
 
 	@FXML
-	private var buttonBarDiscard: Button? = null
+	private lateinit var buttonBarDiscard: Button
 
 	@FXML
-	private var buttonBarBuy: Button? = null
+	private lateinit var buttonBarBuy: Button
 
 	@FXML
-	private var productTable: TableView<*>? = null
+	private lateinit var productTable: TableView<*>
 
 	@FXML
-	private var productTableProductColumn: TableColumn<*, *>? = null
+	private lateinit var productTableProductColumn: TableColumn<*, *>
 
 	@FXML
-	private var productTablePriceColumn: TableColumn<*, *>? = null
+	private lateinit var productTablePriceColumn: TableColumn<*, *>
 
 	@FXML
-	private var productTableAmountColumn: TableColumn<*, *>? = null
+	private lateinit var productTableAmountColumn: TableColumn<*, *>
 
 	@FXML
 	fun buyCartEvent(event: ActionEvent) {
@@ -103,7 +102,7 @@ class MainSceneController(val uiController: UIController) {
 	}
 
 	@FXML
-	fun closeApplicationEvent(event: ActionEvent?) {
+	fun closeApplicationEvent(event: ActionEvent) {
 		val alert = Alert(Alert.AlertType.CONFIRMATION, "Drücken sie abbrechen um zur Anwendung zurückzukehren oder " +
 				"schließen um mit dem schließen fortzufahren.", ButtonType.CANCEL, ButtonType.YES)
 		alert.headerText = "Wollen sie die Anwendung wirklich schließen?"
@@ -136,8 +135,8 @@ class MainSceneController(val uiController: UIController) {
 
 	@FXML
 	fun loginLogout(event: ActionEvent) {
-		if (uiController.controller.isLoggedIn.value ?: false) {
-			toolBarLoginLogout?.text = resources?.getString("toolBar.login")
+		if (uiController.controller.isLoggedIn.value) {
+			toolBarLoginLogout.text = resources.getString("toolBar.login")
 			uiController.controller.isLoggedIn.value = false
 		} else {
 			val loginController = LoginController()
@@ -145,7 +144,7 @@ class MainSceneController(val uiController: UIController) {
 			loginController.showAndWait()
 
 			if (loginController.loginSuccess) {
-				toolBarLoginLogout?.text = resources?.getString("toolBar.logout")
+				toolBarLoginLogout.text = resources.getString("toolBar.logout")
 				uiController.controller.isLoggedIn.value = true
 			}
 		}
@@ -194,19 +193,19 @@ class MainSceneController(val uiController: UIController) {
 
 	@FXML
 	fun initialize() {
-		toolBarLog?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		toolBarNewPerson?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		toolBarNewProduct?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		toolBarLog?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		toolBarFinances?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		toolBarStock?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		menuBarEditNewPerson?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
-		menuBarEditNewProduct?.disableProperty()?.bind(uiController.controller.isLoggedIn.not())
+		toolBarLog.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		toolBarNewPerson.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		toolBarNewProduct.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		toolBarLog.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		toolBarFinances.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		toolBarStock.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		menuBarEditNewPerson.disableProperty().bind(uiController.controller.isLoggedIn.not())
+		menuBarEditNewProduct.disableProperty().bind(uiController.controller.isLoggedIn.not())
 
-		personTableFirstNameColumn?.cellValueFactory = PropertyValueFactory<Person, String>("firstName")
-		personTableLastNameColumn?.cellValueFactory = PropertyValueFactory<Person, String>("lastName")
-		personTableBalanceColumn?.cellValueFactory = PropertyValueFactory<Person, Double>("balance")
-		personTable?.items = uiController.persons
+		personTableFirstNameColumn.cellValueFactory = PropertyValueFactory<Person, String>("firstName")
+		personTableLastNameColumn.cellValueFactory = PropertyValueFactory<Person, String>("lastName")
+		personTableBalanceColumn.cellValueFactory = PropertyValueFactory<Person, Double>("balance")
+		personTable.items = uiController.persons
 
 		initNotesPopOver()
 	}
@@ -216,7 +215,7 @@ class MainSceneController(val uiController: UIController) {
 		popUp.fadeInDuration = Duration(300.0)
 		popUp.fadeOutDuration = Duration(300.0)
 		popUp.isDetachable = true
-		popUp.title = resources?.getString("toolBar.notes")
+		popUp.title = resources.getString("toolBar.notes")
 		textArea.prefHeight = 500.0
 		textArea.font = Font.font(18.0)
 		textArea.isWrapText = true

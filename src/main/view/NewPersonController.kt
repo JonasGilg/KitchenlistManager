@@ -18,16 +18,16 @@ class NewPersonController : Initializable {
 	private val dialog = Stage(StageStyle.UTILITY)
 
 	@FXML
-	private var root: VBox? = null
+	private lateinit var root: VBox
 
 	@FXML
-	private var firstNameField: CustomTextField? = null
+	private lateinit var firstNameField: CustomTextField
 
 	@FXML
-	private var lastNameField: CustomTextField? = null
+	private lateinit var lastNameField: CustomTextField
 
 	@FXML
-	private var balanceField: CustomTextField? = null
+	private lateinit var balanceField: CustomTextField
 
 	@FXML
 	fun cancel(event: ActionEvent) {

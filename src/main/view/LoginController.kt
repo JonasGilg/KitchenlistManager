@@ -4,7 +4,6 @@ import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.Scene
-import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
 import javafx.scene.layout.VBox
 import javafx.stage.Modality
@@ -21,33 +20,33 @@ class LoginController : Initializable {
 	internal var loginSuccess = false
 
 	@FXML
-	private var root: VBox? = null
+	private lateinit var root: VBox
 
 	@FXML
-	private var nameField: CustomTextField? = null
+	private lateinit var nameField: CustomTextField
 
 	@FXML
-	private var passwordField: CustomPasswordField? = null
+	private lateinit var passwordField: CustomPasswordField
 
 	@FXML
 	private fun loginEvent(event: ActionEvent) {
-		if (nameField?.text == "admin" && passwordField?.text == "admin") {
+		if (nameField.text == "admin" && passwordField.text == "admin") {
 			loginSuccess = true
 			dialog.close()
 		} else {
-			if(!nameField?.styleClass?.contains("error")!! && !passwordField?.styleClass?.contains("error")!!) {
-				nameField?.styleClass?.add("error")
-				passwordField?.styleClass?.add("error")
+			if(!nameField.styleClass?.contains("error")!! && !passwordField.styleClass?.contains("error")!!) {
+				nameField.styleClass?.add("error")
+				passwordField.styleClass?.add("error")
 			}
-			passwordField?.clear()
+			passwordField.clear()
 		}
 	}
 
 	@FXML
 	fun keyTyped(event: KeyEvent) {
 		if(event.character != "\r") {
-			nameField?.styleClass?.remove("error")
-			passwordField?.styleClass?.remove("error")
+			nameField.styleClass?.remove("error")
+			passwordField.styleClass?.remove("error")
 		}
 	}
 
