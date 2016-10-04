@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane
 import javafx.scene.text.Font
 import javafx.util.Duration
 import main.model.Person
+import main.model.Product
 import org.controlsfx.control.PopOver
 import java.util.*
 
@@ -85,16 +86,16 @@ class MainSceneController(val uiController: UIController) {
 	private lateinit var buttonBarBuy: Button
 
 	@FXML
-	private lateinit var productTable: TableView<*>
+	private lateinit var productTable: TableView<Product>
 
 	@FXML
-	private lateinit var productTableProductColumn: TableColumn<*, *>
+	private lateinit var productTableProductColumn: TableColumn<Product, String>
 
 	@FXML
-	private lateinit var productTablePriceColumn: TableColumn<*, *>
+	private lateinit var productTablePriceColumn: TableColumn<Product, Double>
 
 	@FXML
-	private lateinit var productTableAmountColumn: TableColumn<*, *>
+	private lateinit var productTableAmountColumn: TableColumn<Product, Spinner<Int>>
 
 	@FXML
 	fun buyCartEvent(event: ActionEvent) {

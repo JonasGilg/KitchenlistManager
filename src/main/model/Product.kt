@@ -6,7 +6,5 @@ import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
 
 data class Product(val name: StringProperty = SimpleStringProperty("", "name"),
-                   val price: DoubleProperty = SimpleDoubleProperty(0.0, "price")) {
-
-
+				   val price: DoubleProperty = SimpleDoubleProperty(0.0, "price")) {
 }

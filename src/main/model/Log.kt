@@ -7,12 +7,12 @@ import java.util.Calendar
 
 data class Log(val log: ObservableList<String> = FXCollections.observableArrayList<String>()) {
 
-    fun append(entry: String) {
-        log.add(String.format("%s: %s", DATE_FORMAT.format(CALENDAR.time), entry))
-    }
+	fun append(entry: String) {
+		log.add("${DATE_FORMAT.format(CALENDAR.time)} $entry")
+	}
 
-    companion object {
-        private val DATE_FORMAT = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        private val CALENDAR = Calendar.getInstance()
-    }
+	companion object {
+		private val DATE_FORMAT = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+		private val CALENDAR = Calendar.getInstance()
+	}
 }
