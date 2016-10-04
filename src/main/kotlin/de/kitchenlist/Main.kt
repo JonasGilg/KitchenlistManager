@@ -1,8 +1,8 @@
-package main
+package de.kitchenlist
 
 import javafx.application.Application
 import javafx.stage.Stage
-import main.view.UIController
+import de.kitchenlist.view.UIController
 
 class Main : Application() {
 
@@ -10,11 +10,6 @@ class Main : Application() {
 		val uiController = UIController(primaryStage)
 		uiController.show()
 	}
-
-	companion object {
-		@JvmStatic
-		fun main(args: Array<String>) {
-			launch(Main::class.java, *args)
-		}
-	}
 }
+
+fun main(args: Array<String>) = Application.launch(Main::class.java, *args)

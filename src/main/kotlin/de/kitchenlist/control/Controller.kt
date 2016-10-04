@@ -1,11 +1,11 @@
-package main.control
+package de.kitchenlist.control
 
 import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.collections.ObservableList
-import main.model.Log
-import main.model.Person
-import main.model.Product
+import de.kitchenlist.model.Log
+import de.kitchenlist.model.Person
+import de.kitchenlist.model.Product
 
 data class Controller(val persons: ObservableList<Person>,
 					  val products: ObservableList<Product>,

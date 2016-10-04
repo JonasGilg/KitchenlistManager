@@ -95,3 +95,9 @@ fabric.properties
 Kuechenliste.iml
 lib/
 out/
+/gradle/
+/build/
+/.gradle/
+.gradle/
+build/
+gradle/

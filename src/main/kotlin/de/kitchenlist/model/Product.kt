@@ -1,4 +1,4 @@
-package main.model
+package de.kitchenlist.model
 
 import javafx.beans.property.DoubleProperty
 import javafx.beans.property.SimpleDoubleProperty

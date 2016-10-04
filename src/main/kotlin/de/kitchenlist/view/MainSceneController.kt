@@ -1,5 +1,6 @@
-package main.view
+package de.kitchenlist.view
 
+import de.kitchenlist.view.LoginController
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
@@ -7,8 +8,10 @@ import javafx.scene.control.cell.PropertyValueFactory
 import javafx.scene.layout.BorderPane
 import javafx.scene.text.Font
 import javafx.util.Duration
-import main.model.Person
-import main.model.Product
+import de.kitchenlist.model.Person
+import de.kitchenlist.model.Product
+import de.kitchenlist.view.NewPersonController
+import de.kitchenlist.view.UIController
 import org.controlsfx.control.PopOver
 import java.util.*
 

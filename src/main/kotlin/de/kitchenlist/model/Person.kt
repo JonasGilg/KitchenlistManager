@@ -1,5 +1,6 @@
-package main.model
+package de.kitchenlist.model
 
+import de.kitchenlist.model.Log
 import javafx.beans.property.DoubleProperty
 import javafx.beans.property.SimpleDoubleProperty
 import javafx.beans.property.SimpleStringProperty

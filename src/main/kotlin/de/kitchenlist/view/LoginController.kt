@@ -1,4 +1,4 @@
-package main.view
+package de.kitchenlist.view
 
 import javafx.event.ActionEvent
 import javafx.fxml.FXML

@@ -1,15 +1,16 @@
-package main.view
+package de.kitchenlist.view
 
+import de.kitchenlist.view.MainSceneController
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
-import main.control.Controller
-import main.model.Log
-import main.model.Person
-import main.model.Product
+import de.kitchenlist.control.Controller
+import de.kitchenlist.model.Log
+import de.kitchenlist.model.Person
+import de.kitchenlist.model.Product
 import java.util.*
 
 class UIController(val window: Stage) {

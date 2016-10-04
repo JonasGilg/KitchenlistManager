@@ -1,4 +1,4 @@
-package main.model
+package de.kitchenlist.model
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableMap
